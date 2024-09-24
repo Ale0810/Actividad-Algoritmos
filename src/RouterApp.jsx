@@ -68,7 +68,7 @@ const RouterApp = (props) => {
   }
 
   useEffect(() => {
-    if (localStorage.getItem("userdata")) {
+    if (localStorage.getItem("AccessToken")) {
       setProtectedRoutes(
         <>
           {

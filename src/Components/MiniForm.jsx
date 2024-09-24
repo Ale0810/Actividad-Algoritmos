@@ -17,8 +17,9 @@ const Form = () => {
       try {
         setCargando(true);
         let rsp = await PostApi(datos);
+        console.log("Respuesta:",rsp);
         if (rsp?.AccessToken) {
-          localStorage.setItem("userdata", rsp.AccessToken);
+          localStorage.setItem("AccessToken", rsp.AccessToken);
           window.location.replace("/home");
           setCargando(false);
         } else {
