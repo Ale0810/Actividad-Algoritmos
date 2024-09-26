@@ -7,12 +7,12 @@ import CardActionArea from '@mui/material/CardActionArea';
 
 const CardDiseñada = (props) => {
   return (
-    <Card sx={{ maxWidth: 300 }}>
+    <Card sx={{ maxWidth: { xs: 300, sm: 600, md: 1000 }, width: "100%" }}>
       <CardActionArea>
         <CardMedia
           component="img"
           sx={{
-            height:"20vh",
+            height:"30vh",
             width:"20vw",
             objectFit: 'cover'
           }}
