@@ -1,6 +1,7 @@
 import Footer from "../Components/Footer";
 import Nav from "../Components/Nav";
 import { useEffect, useState } from "react";
+import { jwtDecode } from "jwt-decode";
 
 let Direcciones = [];
 
@@ -17,10 +18,17 @@ const Frontend = (props) => {
   const [userData, setUserData] = useState(false);
 
   useEffect(() => {
-    let tmp = localStorage.getItem("accessToken");
-
-    if (tmp) {
-      setUserData(JSON.parse(tmp));
+    let token = localStorage.getItem("accessToken");
+    if (token) {
+      try {
+        let tokenDecoded = jwtDecode(token);
+        console.log(tokenDecoded);
+        setUserData(tokenDecoded);
+      }
+      catch (error)
+      {
+        console.error("Error decodeando",token);
+      }
     }
   }, []);
 
