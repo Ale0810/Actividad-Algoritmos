@@ -12,7 +12,7 @@ const CardDiseñada = (props) => {
         <CardMedia
           component="img"
           sx={{
-            height:"30vh",
+            height:"20vh",
             width:"20vw",
             objectFit: 'cover'
           }}

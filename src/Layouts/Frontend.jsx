@@ -33,14 +33,14 @@ const Frontend = (props) => {
 
   return (
     <>
-      <div className="flex flex-col max-h-full  bg-forbody ">
-        <div className="flex flex-col fixed w-[100vw]">
+      <div className="flex flex-col min-h-screen  bg-forbody ">
+        <div className="w-full">
           <Nav />
         </div>
-        {props.children}
-        <div className="flex flex-col w-[100vw] h-[100vh]">
-          <Footer />
-        </div>
+        <main className="flex-grow">
+          {props.children}
+        </main>
+        <Footer />
       </div>
     </>
   );
