@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 
 let Direcciones = [];
 
-if (localStorage.getItem("AccessToken")) {
+if (localStorage.getItem("accessToken")) {
   Direcciones = [
     {
       to: "/home",
@@ -17,7 +17,7 @@ const Frontend = (props) => {
   const [userData, setUserData] = useState(false);
 
   useEffect(() => {
-    let tmp = localStorage.getItem("AccessToken");
+    let tmp = localStorage.getItem("accessToken");
 
     if (tmp) {
       setUserData(JSON.parse(tmp));

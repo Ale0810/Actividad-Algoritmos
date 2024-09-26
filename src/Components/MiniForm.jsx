@@ -18,8 +18,8 @@ const Form = () => {
         setCargando(true);
         let rsp = await PostApi(datos);
         console.log("Respuesta:",rsp);
-        if (rsp?.AccessToken) {
-          localStorage.setItem("AccessToken", rsp.AccessToken);
+        if (rsp?.accessToken) {
+          localStorage.setItem("accessToken", rsp.accessToken);
           window.location.replace("/home");
           setCargando(false);
         } else {
