@@ -25,19 +25,22 @@ const Frontend = (props) => {
         console.log(tokenDecoded);
         setUserData(tokenDecoded);
       }
-      catch (error)
-      {
-        console.error("Error decodeando",token);
+      catch (error) {
+        console.error("Error decodeando", token);
       }
     }
   }, []);
 
   return (
     <>
-      <div className="min-h-screen  bg-forbody ">
-        <Nav />
+      <div className="flex flex-col max-h-full  bg-forbody ">
+        <div className="flex flex-col fixed w-[100vw]">
+          <Nav />
+        </div>
         {props.children}
-        <Footer />
+        <div className="flex flex-col w-[100vw] h-[100vh]">
+          <Footer />
+        </div>
       </div>
     </>
   );
