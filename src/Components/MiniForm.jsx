@@ -35,7 +35,7 @@ const Form = () => {
   return (
     <form className="flex bg-grisclarito border justify-center  border-black w-[60vw] h-[50vh] shadow-2xl rounded-lg">
       <div className="flex flex-col gap-5 justify-center items-center">
-        <h1 className="text-3xl font-bold mb-5">Complete los datos</h1>
+        <h1 className="text-3xl font-bold mb-5">Iniciar Sesion</h1>
         {errores && <p className="text-red-600">{errores}</p>}
         <Input
           type={"text"}
@@ -56,7 +56,7 @@ const Form = () => {
           type="button"
           onClick={submitLogin}
         >
-          Enviar
+          Acceder
         </button>
         <div className={`flex ${cargando ? "block" : "hidden"} `}>
           <Progress/>

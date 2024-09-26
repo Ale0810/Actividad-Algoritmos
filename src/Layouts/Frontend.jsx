@@ -1,4 +1,3 @@
-import Footer from "../Components/Footer";
 import Nav from "../Components/Nav";
 import { useEffect, useState } from "react";
 import { jwtDecode } from "jwt-decode";
@@ -40,7 +39,6 @@ const Frontend = (props) => {
         <main className="flex-grow">
           {props.children}
         </main>
-        <Footer />
       </div>
     </>
   );
