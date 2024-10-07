@@ -20,7 +20,7 @@ const Frontend = (props) => {
     let token = localStorage.getItem("accessToken");
     if (token) {
       try {
-        let tokenDecoded = jwtDecode(token);
+        let tokenDecoded = JSON.stringify(jwtDecode(token));
         console.log(tokenDecoded);
         setUserData(tokenDecoded);
       }
