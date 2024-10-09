@@ -1,6 +1,6 @@
 import Input from "./Input";
 import { useEffect, useState } from "react";
-import { PostApi } from "../Services/Auth";
+import { PostLogin } from "../Services/Auth";
 import Progress from "../Components/Progress"
 
 const Form = () => {
@@ -16,7 +16,7 @@ const Form = () => {
       console.log("Datos:", datos);
       try {
         setCargando(true);
-        let rsp = await PostApi(datos);
+        let rsp = await PostLogin(datos);
         console.log("Respuesta:",rsp);
         if (rsp?.accessToken) {
           localStorage.setItem("accessToken", rsp.accessToken);

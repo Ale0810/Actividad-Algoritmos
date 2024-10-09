@@ -40,7 +40,7 @@ export async function GET(url, data) {
         method: 'GET',
         mode: 'cors',
         headers: {
-            'Authorization': `Bearer ${localStorage.getItem('token')}`
+            'Authorization': `Bearer ${localStorage.getItem('accessToken')}`
         }
     })
         .then((res) => res.json())
@@ -53,7 +53,7 @@ export async function PATCH(url, data) {
         mode: 'cors',
         headers: {
             'Content-Type': 'application/json',
-            'Authorization': `Bearer ${localStorage.getItem('token')}`
+            'Authorization': `Bearer ${localStorage.getItem('accessToken')}`
         },
         body: JSON.stringify(data)
     })
@@ -62,19 +62,17 @@ export async function PATCH(url, data) {
         .catch((err) => console.log(err));
 }
 
-export async function DELETE(url, data) {
-    const objString = '?' + new URLSearchParams(data).toString();
-
-    return await fetch(backendurl + url + objString, {
+export async function DELETE(url, params) {
+    let queryString = new URLSearchParams(params).toString();
+    return await fetch(backendurl + url + '?' + queryString, {
         method: 'DELETE',
         mode: 'cors',
         headers: {
-            'Authorization': `Bearer ${localStorage.getItem('token')}`
-        },
+            'Authorization': `Bearer ${localStorage.getItem('accessToken')}`
+        }
     })
-        .then((res) => res.json())
-        .then((res) => res)
-        .catch((err) => console.log(err));
+    .then((res) => res.json())
+    .then((res) => res);
 }
 
 export async function POSTU(url, file) {
@@ -86,7 +84,7 @@ export async function POSTU(url, file) {
         method: 'POST',
         mode: 'cors',
         headers: {
-            'Authorization': `Bearer ${localStorage.getItem('token')}`
+            'Authorization': `Bearer ${localStorage.getItem('accessToken')}`
         },
         body: data
     })
