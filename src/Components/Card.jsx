@@ -1,15 +1,8 @@
-import { Card, CardActionArea, CardMedia, CardContent, Typography } from '@mui/material';
-import { useEffect, useState } from 'react';
+import { Card, CardActionArea, CardMedia, CardContent, Typography, IconButton } from '@mui/material';
 import ModeEditRoundedIcon from '@mui/icons-material/ModeEditRounded';
 import DeleteForeverRoundedIcon from '@mui/icons-material/DeleteForeverRounded';
 
 const CardDiseñada = (props) => {
-  const [usuario, setUsuario] = useState("");
-
-  useEffect(() => {
-
-  }, [usuario])
-
   return (
     <Card
       sx={{
@@ -45,17 +38,17 @@ const CardDiseñada = (props) => {
             {props.detalle}
           </Typography>
           <div className="flex flex-row mt-2 justify-center items-center">
-            <div className='mr-2'>
-              <button className="rounded-lg bg-yellow-400 hover:bg-yellow-500 p-2">{<ModeEditRoundedIcon />}</button>
-            </div>
-            <div>
-              <button className="rounded-lg bg-red-400 hover:bg-red-500 p-2">{<DeleteForeverRoundedIcon />}</button>
-            </div>
+            <IconButton onClick={props.onEdit} className="mr-2" color="primary">
+              <ModeEditRoundedIcon />
+            </IconButton>
+            <IconButton onClick={props.onDelete} color="secondary">
+              <DeleteForeverRoundedIcon />
+            </IconButton>
           </div>
         </CardContent>
       </CardActionArea>
     </Card>
   );
-}
+};
 
 export default CardDiseñada;

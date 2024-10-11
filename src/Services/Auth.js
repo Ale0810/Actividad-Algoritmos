@@ -1,4 +1,4 @@
-import { GET, POST } from "./Fetch";
+import { GET, POST,DELETE } from "./Fetch";
 
 export const PostLogin = async (data) => {
     try {
@@ -13,7 +13,7 @@ export const PostLogin = async (data) => {
 
 export const PostNotas = async (data) => {
     try {
-        let rsp = await POST("Crear",data)
+        let rsp = await POST("Crear", data)
         return rsp;
     }
     catch (error) {
@@ -24,7 +24,7 @@ export const PostNotas = async (data) => {
 
 export const GetNotas = async (data) => {
     try {
-        let rsp = await GET("Mostrar/",data.usuario_id)
+        let rsp = await GET("Mostrar/", data.usuario_id)
         return rsp;
     }
     catch (error) {
@@ -33,12 +33,11 @@ export const GetNotas = async (data) => {
     }
 }
 
-export const DeleteNotas = async (id_nota,usuario_id) => {
+export const DeleteNotas = async (data) => {
     try {
-        let rsp = await DELETE(`Eliminar/${id_nota}`, { usuario_id });
+        let rsp = await DELETE(`Notas/Eliminar/${data.id_nota}`, { usuario_id: data.usuario_id });
         return rsp;
-    }
-    catch (error) {
+    } catch (error) {
         console.error("Error Api Eliminar:", error.message);
         return null;
     }

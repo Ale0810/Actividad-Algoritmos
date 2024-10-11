@@ -71,8 +71,8 @@ export async function DELETE(url, params) {
             'Authorization': `Bearer ${localStorage.getItem('accessToken')}`
         }
     })
-    .then((res) => res.json())
-    .then((res) => res);
+        .then((res) => res.json())
+        .then((res) => res);
 }
 
 export async function POSTU(url, file) {
