@@ -1,11 +1,11 @@
 import CardDiseñada from "../Components/Card";
 import cerdito from "../Assets/Img/cerdito.jpg";
 import { useEffect, useState } from "react";
-import { DeleteNotas } from "../Services/Auth";
+import { DeleteNotas } from "../Services/Notas";
 
 const Home = () => {
   const [usuario, setUsuario] = useState("");
-  const [notas, setNotas] = useState({ id_nota: 1, titulo: "Cerdito", detalle: "es pepon", usuario_id: 456 });
+  const [notas, setNotas] = useState({ id_nota: 0, titulo: "Cerdito", detalle: "es pepon", usuario_id: 0 });
 
   const eliminarNota = async () => {
     try {
